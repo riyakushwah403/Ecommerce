@@ -8,18 +8,13 @@ import Checkout from "./Checkout";
 
 const Cart = () => {
     const [items, setItems] = useState([])
-    // const [prod, setProd] = useState([])
 
 
 
     useEffect(() => {
         setItems(getCart());
     }, [])
-
-    // useEffect(() => {
-    //     console.log("Item Updated");
-    // }, [])
-
+    
     const showItems = items => {
         return (
             <div>
@@ -30,6 +25,7 @@ const Cart = () => {
                         showAddToCartButton={false}
                         cartUpdate={true}
                         showRemoveProductButton={true}
+                        setItems={setItems}
                     />
                 )}
             </div>

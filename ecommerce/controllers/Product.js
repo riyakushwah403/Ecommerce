@@ -278,7 +278,6 @@ exports.photo = (req, res, next) =>{
 //create query object to hold search  value and categoy value
 exports.listSearch =(req,res)=>{
  const query = {}
- console.log("req.query.search",req.query.search);
  if(req.query.search){
   query.name ={$regex: req.query.search, $options:'i'}
 
@@ -292,6 +291,7 @@ exports.listSearch =(req,res)=>{
         error:err
       })
     }
+    console.log("products",products);
     res.json(products)
   })
  }

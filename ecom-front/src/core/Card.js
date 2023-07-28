@@ -10,7 +10,8 @@ const Card = ({ product,
     showViewProductButton = true,
     showAddToCartButton = true,
     cartUpdate = false,
-    showRemoveProductButton = false
+    showRemoveProductButton = false,
+    setItems = null
 }) => {
     const [redirect, setRedirect] = useState(false);
     const [count, setCount] = useState(product.count)
@@ -28,7 +29,7 @@ const Card = ({ product,
     }
 
     const addToCart = () => {
-        // console.log("PPPPPPPPPPPP",product);
+        console.log("PPPPPPPPPPPP",product);
         addItem(product, () => {
             setRedirect(true)
         })
@@ -56,7 +57,7 @@ const Card = ({ product,
                 <button
                     onClick={()=>{
                          const value = removeItem(product._id)
-                         console.log("value value",value);
+                         setItems(value)
                     }}
                     className="btn btn-outline-danger mt-2 mb-2">
                    Remove Product

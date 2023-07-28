@@ -30,14 +30,18 @@
 // };
 export const addItem = (item, next) => {
     let cart = [];
+    console.log("inside add item",item);
     if (typeof window !== "undefined") {
         if (localStorage.getItem('cart')) {
             cart = JSON.parse(localStorage.getItem('cart'));
         }
-        console.log(cart);
 
         // Check if the item with the same _id already exists in the cart
-        const existingItem = cart.find((p) => p._id === item._id);
+        let existingItem;
+        if (cart.length) {
+            console.log("cart",cart.length);
+            existingItem = cart.find((p) => p._id === item._id);
+        }
 
         if (existingItem) {
             // If the item already exists, increase its count
